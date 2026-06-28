@@ -1,0 +1,97 @@
+📁 Struktur Database: laravel
+
+1. Tabel: barangs
+   - id: id barang (INT, PRIMARY KEY)
+   - kode: kode barang
+   - nama: nama barang atau produk
+   - kategori: kategori barang
+   - harga: harga barang
+   - stok: stok barang
+   - created_at: tanggal di input data barang ke Database
+   - updated_at: tanggal di update data barang ke Database
+
+2. Tabel: perusahaans
+   - id: id perusahaan (INT, PRIMARY KEY)
+   - nama: nama perusahaan
+   - alamat: alamat perusahaan
+   - telepon: nomor telepon atau kontak perusahaan
+   - email: email perusahaan
+   - npwp: npwp perusahaan
+   - created_at: tanggal di input data perusahaan ke Database
+   - updated_at: tanggal di update data perusahaan ke Database
+
+3. Tabel: pesanan_items
+   - id: id pesanan penjualan
+   - pesanan_penjualan_id: id pesanan penjualan
+   - barang_id: id barang (relasi ke tabel barangs)
+   - kuantitas: jumlah barang yang di pesanan
+   - harga: harga satuan barang yang di pesanan
+   - diskon: diskon pesanan
+   - total_harga: total harga pesanan penjumlahan dari kuantitas dan harga satuan barang yang di pesan
+   - created_at: tanggal dibuat pesanan
+   - updated_at: tanggal di update pesanan
+
+4. Tabel: surat_jalans
+   - id: id surat jalan
+   - tanggal: tanggal di buat surat jalan
+   - nomor: nomor surat jalan
+   - po_no: nomor po surat jalan
+   - ekspedisi: nama ekspedisi yang dipakai
+   - created_at: tanggal dibuat surat jalan
+   - updated_at: tanggal di update surat jalan
+   - tujuan: tujuan pengiriman surat jalan
+   - purusahaan_id: id perusahaan
+   - keterangan: keterangan surat jalan 
+
+5. Tabel: surat_jalan_items
+   - id: id surat jalan items
+   - surat_jalan_id: id surat jalan (relasi ke tabel surat_jalans)
+   - barang_id: id barang (relasi ke tabel barangs)
+   - kuantitas: jumlah barang di surat jalan items
+   - satuan: jenis satuan barang misal pcs dan lain lain
+   - created_at: tangal di input atau di buat data surat jalan items ini
+   - updated_at: tanggal di update atau di buat data surat jalan items ini
+
+6. Tabel: surat_penawaran_hargas
+   - id: id surat penawaran harga
+   - nomor: nomor surat penawaran harga
+   - tanggal: tanggal di buat surat penawaran harga
+   - pembayaran: jenis pembayaran 
+   - ppn: jumlah pajak
+   - perusahaan_id: id perusahaan (relasi ke tabel perusahaans)
+   - biaya_lain: biaya lain lain di luar harga barang surat penawaran harga
+   - keterangan: keterangan surat penawaran harga
+   - created_at: tanggal dibuat surat penawaran harga
+   - updated_at: tanggal di update surat penawaran harga
+
+7. Tabel: penawaran_items
+   - id: id penawaran items
+   - surat_penawaran_harga_id: id surat penawaran harga (relasi ke tabel surat_penawaran_hargas)
+   - barang_id: id barang (relasi ke tabel barangs)
+   - kuantitas: jumlah atau kuantitas barang di penawaran items
+   - harga: harga satuan barang 
+   - diskon: jumlah diskon yang diberikan atau di tawarkan
+   - created_at: tanggal dibuat penawaran items
+   - updated_at: tanggal di update penawaran items
+
+8. Tabel: pesanan_penjualans
+   - id: id pesanan penjualan
+   - nomor_surat: nomor surat pesanan penjualan
+   - perusahaan_id: id perusahaan (relasi ke tabel perusahaans)
+   - tanggal_pesanan: tanggal pesanan penjualan
+   - tanggal_pengiriman: tanggal pengirimaan barang dan surat
+   - syarat_pembayaran: jenis penbayaran
+   - fob: ini tentang siapa yang bayar ongkir penjual atau pembeli
+   - ekspedisi: ekspedisi yang dipakai kirim pesanan penjualan
+   - po_no: nomot po pesanan penjualan
+   - penjual: nama penjual
+   - subtotal: subtotalnya
+   - diskon_total: total diskon pesanan penjualan
+   - ppn: jumlah pajak pesanan penjualan
+   - biaya_lain: biaya lain lain diluar harga barang pesanan penjualan
+   - total: jumlah total di pesanan penjualan termasuk pajak dan semuanya
+   - terbilang: teks jumlah total pesanan penjualan dari angka total
+   - created_at: tanggal dibuat pesanan penjualan
+   - updated_at: tanggal di update pesanan penjualan
+
+
